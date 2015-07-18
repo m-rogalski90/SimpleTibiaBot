@@ -1,6 +1,4 @@
-#include <Windows.h>
-#include <TlHelp32.h>
-#include <iostream>
+#include "addresses.h"
 
 DWORD __GetBaseAddress(DWORD, TCHAR*);
 DWORD __GetGameProcessId(TCHAR*);
@@ -24,7 +22,27 @@ int main(int argc, char* argv[])
 
 	while (1)
 	{
+		DWORD address = A_LEVEL + gBase;
+		unsigned __int32 level = 0;
+		unsigned __int32 experience = 0;
+		SIZE_T size = sizeof(__int32);
+		SIZE_T readed = 0;
+		int ok = 0;
+		
+		ok = ReadProcessMemory(gHandle, (LPCVOID)address, &level, size, &readed);
+		if (!ok || size != readed)
+			std::cout << "nope" << std::endl;
 
+		readed = 0;
+		address = A_EXPERIENCE + gBase;
+		ok = ReadProcessMemory(gHandle, (LPCVOID)address, &experience, size, &readed);
+		if (!ok || size != readed)
+			std::cout << "nope" << std::endl;
+
+		std::cout << "LEVEL :: " << level << std::endl;
+		std::cout << "EXPERIENCE :: " << experience << std::endl;
+
+		Sleep(1000);
 	}
 
 	CloseHandle(gHandle);
@@ -58,7 +76,7 @@ DWORD __GetBaseAddress(DWORD pid, TCHAR* name)
 		{
 			do
 			{
-				if (strcmp(modEntry.szModule, name))
+				if (!strcmp(modEntry.szModule, name))
 				{
 					CloseHandle(snapshot);
 					return (DWORD)modEntry.modBaseAddr;
