@@ -6,6 +6,7 @@
 #define A_XOR			0x4380D0 + OFFSET
 #define A_LEVEL			0x4380E8 + OFFSET
 #define A_EXPERIENCE	0x4380D8 + OFFSET
+#define A_EXPPERHOUR	0x48D83C + OFFSET
 #define A_STAMINA		0x438134 + OFFSET
 #define A_OFFTG			0x438094 + OFFSET
 #define A_HEALTH		0x5D5000
@@ -27,7 +28,6 @@
 		AddressHWND = dectohex("0x43802C") + dectohex("0x20") + dectohex("0x40")
 		AddressStatus = dectohex("0x43808C") + dectohex("0x20")
 		AddressTargetRed = dectohex("0x4380FC") + dectohex("0x20")
-		AddressMp = dectohex("") + dectohex("0x20")
 		AddressFirstPc = dectohex("0x438108") + dectohex("0x20")
 		AddressWhiteTarget = dectohex("0x438118") + dectohex("0x2C")
 		lookAddressLogged = dectohex("0x438680") + dectohex("0x20")
@@ -53,7 +53,6 @@
 		address_pointer_spells_basic = dectohex("0x48D7A4") + dectohex("0x20")
 		address_pointer_spells = address_pointer_spells_basic + 8
 		address_total_spells = address_pointer_spells + 4
-		AddressExpHour = dectohex("0x48D83C") + dectohex("0x20")
 
 		addressOfFirstMap = dectohex("0x490F48") + dectohex("0x20")
 		pointer_vip_players = dectohex("0x5AE890") + dectohex("0x20")
