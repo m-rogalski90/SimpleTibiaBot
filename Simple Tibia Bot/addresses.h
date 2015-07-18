@@ -1,123 +1,123 @@
 #pragma once
 #include "pch.h"
 
-#define A_XOR				0x4380F0
-#define A_LEVEL				0x438108
-#define A_EXPERIENCE		0x4380F8
-#define A_EXPPERHOUR		0x48D85C
-#define A_STAMINA			0x438154
-#define A_CAPACITY			0x5D5024
-#define A_OFFTG				0x4380B4
-#define A_SOUL				0x43810C
-#define A_HEALTH			0x5D5000
-#define A_HEALTH_MAX		0x5D502C
-#define A_MANA				0x438120
-#define A_MANA_MAX			0x4380F4
+#define A_RECEIVE_BUFFER		0x438328
+#define A_XOR					0x4380F0
+#define A_HWND					0x43808C
+#define A_ACTUAL_HK_SCHEME		0x42B9F8
+#define A_HK_SCHEME_REF			0x5D178C
 
-#define A_MAGIC_PC			0x438118
-#define A_FIST_PC			0x438128
-#define A_CLUB_PC			0x43812C
-#define A_SWORD_PC			0x438130
-#define A_AXE_PC			0x438134
-#define A_DIST_PC			0x438138
-#define A_SHIELD_PC			0x43813C
-#define A_FISH_PC			0x438140
+#define A_STATUS				0x4380AC
+#define A_WINDOW				0x4386E8
+#define A_EQUIP					0x4386FC
+#define A_LEVEL					0x438108
+#define A_EXPERIENCE			0x4380F8
+#define A_EXPPERHOUR			0x48D85C
+#define A_STAMINA				0x438154
+#define A_CAPACITY				0x5D5024
+#define A_OFFTG					0x4380B4
+#define A_SOUL					0x43810C
+#define A_HEALTH				0x5D5000
+#define A_HEALTH_MAX			0x5D502C
+#define A_MANA					0x438120
+#define A_MANA_MAX				0x4380F4
 
-#define A_MAGIC_VAL			0x438110
-#define A_FIST_VAL			0x5D5008
-#define A_CLUB_VAL			0x5D500C
-#define A_SWORD_VAL			0x5D5010
-#define A_AXE_VAL			0x5D5014
-#define A_DIST_VAL			0x5D5018
-#define A_SHIELD_VAL		0x5D501C
-#define A_FISH_VAL			0x5D5020
+#define A_COOLDOWN_BAR			0x449576
+#define A_PTR_SPELLS_BASIC		0x48D7C4
+#define A_PTR_SPELLS			0x48D7CC
+#define A_TOTAL_SPELLS			0x48D7D0
 
-#define A_DEST_X			0x5D5030
-#define A_DEST_Y			0x5D5028
-#define A_DEST_Z			0x5D5004
+#define A_LOGGED				0x4386A0
+#define A_CHAR_ID				0x5D5034
+
+#define A_MAGIC_PC				0x438118
+#define A_MAGIC_VAL				0x438110
+
+#ifndef SKILL_OFFSET
+	#define SKILL_OFFSET		0x4
+#endif
+
+#ifdef SKILL_OFFSET
+	#define A_FIST_PC			0x438128
+	#define A_CLUB_PC			A_FIST_PC + SKILL_OFFSET				// 0x43812C
+	#define A_SWORD_PC			A_FIST_PC + SKILL_OFFSET * 0x2			// 0x438130
+	#define A_AXE_PC			A_FIST_PC + SKILL_OFFSET * 0x3			// 0x438134
+	#define A_DIST_PC			A_FIST_PC + SKILL_OFFSET * 0x4			// 0x438138
+	#define A_SHIELD_PC			A_FIST_PC + SKILL_OFFSET * 0x5			// 0x43813C
+	#define A_FISH_PC			A_FIST_PC + SKILL_OFFSET * 0x6			// 0x438140
+
+	#define A_FIST_VAL			0x5D5008					
+	#define A_CLUB_VAL			A_MAGIC_VAL + SKILL_OFFSET				// 0x5D500C
+	#define A_SWORD_VAL			A_MAGIC_VAL + SKILL_OFFSET * 0x2		// 0x5D5010
+	#define A_AXE_VAL			A_MAGIC_VAL + SKILL_OFFSET * 0x3		// 0x5D5014
+	#define A_DIST_VAL			A_MAGIC_VAL + SKILL_OFFSET * 0x4		// 0x5D5018
+	#define A_SHIELD_VAL		A_MAGIC_VAL + SKILL_OFFSET * 0x5		// 0x5D501C
+	#define A_FISH_VAL			A_MAGIC_VAL + SKILL_OFFSET * 0x6		// 0x5D5020
+#endif
+
+#define A_POS_X					0x5D5038
+#define A_POS_Y					0x5D503C
+#define A_POS_Z					0x5D5040
+
+#define A_DEST_X				0x5D5030
+#define A_DEST_Y				0x5D5028
+#define A_DEST_Z				0x5D5004
 
 #ifndef EQUIP_OFFSET	
-	#define EQUIP_OFFSET	0x20
+	#define EQUIP_OFFSET		0x20
 #endif
 
-#if defined(EQUIP_OFFSET)
-	#define A_HEAD			0x672098 - 0xD0
-	#define A_NECK			A_HEAD - EQUIP_OFFSET * 1;
-	#define A_CONTAINER		A_HEAD - EQUIP_OFFSET * 2;
-	#define A_TORSO			A_HEAD - EQUIP_OFFSET * 3;
-	#define A_SHIELD		A_HEAD - EQUIP_OFFSET * 4;
-	#define A_WEAPON		A_HEAD - EQUIP_OFFSET * 5;
-	#define A_LEGS			A_HEAD - EQUIP_OFFSET * 6;
-	#define A_FEETS			A_HEAD - EQUIP_OFFSET * 7;
-	#define A_FINGER		A_HEAD - EQUIP_OFFSET * 8;
-	#define A_BELT			A_HEAD - EQUIP_OFFSET * 9;
+#ifdef EQUIP_OFFSET 
+	#define A_HEAD				0x671FC8
+	#define A_NECK				A_HEAD - EQUIP_OFFSET * 1
+	#define A_CONTAINER			A_HEAD - EQUIP_OFFSET * 2
+	#define A_TORSO				A_HEAD - EQUIP_OFFSET * 3
+	#define A_SHIELD			A_HEAD - EQUIP_OFFSET * 4
+	#define A_WEAPON			A_HEAD - EQUIP_OFFSET * 5
+	#define A_LEGS				A_HEAD - EQUIP_OFFSET * 6
+	#define A_FEETS				A_HEAD - EQUIP_OFFSET * 7
+	#define A_FINGER			A_HEAD - EQUIP_OFFSET * 8
+	#define A_BELT				A_HEAD - EQUIP_OFFSET * 9
 #endif
 
-	/*
-	lookAddressIdChar = dectohex("0x5D5034")
-		lookAddressPrimeiroIdBattle = dectohex("0x62C040") - dectohex("0xE0")
+#define A_TGT_SELECTED			0x43811C
+#define A_TGT_HOVERED			0x438144
+#define A_TGT_FOLLOW			0x448554
 
-		AddressSkullModeNew = dectohex("0x3D889C");
-	AddressSkullModeOld = dectohex("0x3DACC3");
-	--ok	--byte 1 = not skull.byte 0 = skull-- 41336 --ok
-		AddressActualHotkeySchema = dectohex("0x42B9F8")
-		AddressCooldownBar = dectohex("0x449556") + dectohex("0x20")
-		AddressHWND = dectohex("0x43802C") + dectohex("0x20") + dectohex("0x40")
-		AddressStatus = dectohex("0x43808C") + dectohex("0x20")
-		AddressTargetRed = dectohex("0x4380FC") + dectohex("0x20")
-		AddressWhiteTarget = dectohex("0x438118") + dectohex("0x2C")
-		lookAddressLogged = dectohex("0x438680") + dectohex("0x20")
-		AddressOfBpPointer = dectohex("0x4386CC") + dectohex("0x20")
-		AddressOfWindow = dectohex("0x4386C8") + dectohex("0x20")
-		AdressEquip = dectohex("0x4386DC") + dectohex("0x20")
-		AddressReceivBuffer = dectohex("0x438308") + dectohex("0x20")
+#define A_SKULL_NEW				0x3D889C
+#define A_SKULL_OLD				0x3DACC3
 
+#define A_MSG_SERVER			0x48BD70
+#define A_MSG_WARNING			0x48BB50
 
-		AddressMouseX1 = dectohex("0x449338") + dectohex("0x20")
-		AddressFollow = dectohex("0x448534") + dectohex("0x20")
+#define A_MOUSE					0x449EE4
+#define A_MOUSE_X1				0x449358
+#define A_MOUSE_X2				0x5D19AC
+#define A_MOUSE_Y1				0x44935C
+#define A_MOUSE_Y2				0x5D19B0
 
-		address_mouse = dectohex("0x449EE4")
-		address_mouse_2 = address_mouse;
+#define A_TIBIA_TIME			0x677FFC
 
-	AddressTelaX = dectohex("0x449ED0") + dectohex("0x20")
-		AddressTelaY = dectohex("0x449F34") + dectohex("0x20")
-		AddressServerMessage = dectohex("0x48BD50") + dectohex("0x20")
-		AddressMessagePlayer = AddressServerMessage
-		AddressMessageWarning = dectohex("0x48BB30") + dectohex("0x20")
-		AddressMessageNotPossible = AddressMessageWarning
-		address_pointer_spells_basic = dectohex("0x48D7A4") + dectohex("0x20")
-		address_pointer_spells = address_pointer_spells_basic + 8
-		address_total_spells = address_pointer_spells + 4
+#define A_ITEM_TO_USE			0x5D1994
+#define A_ITEM_TO_MOVE			0x5D19BC
 
-		addressOfFirstMap = dectohex("0x490F48") + dectohex("0x20")
-		pointer_vip_players = dectohex("0x5AE890") + dectohex("0x20")
-		AddressBaseLogList = dectohex("0x5AF838") + dectohex("0x20")
-		AddressCtrl = dectohex("0x5D16B8") + dectohex("0x20")
-		AddressSchemaHotkeyReference = dectohex("0x5D176C") + dectohex("0x20")
-		address_item_to_be_used = dectohex("0x5D196C") + dectohex("0x28")
-		AddressMouseX2 = dectohex("0x5D1984") + dectohex("0x28")
-		AddressMouseY2 = AddressMouseX2 + 4;
-	address_item_to_be_moved = dectohex("0x5D1994") + dectohex("0x28")
+#define A_POINTER_BP			0x4386EC
+#define A_BP_BASE_NEW			0x677B3C
 
+#define A_PRIME_BATTLE_ID		0x62C120
+#define A_PRIME_BATTLE_NAME		0x62C124
 
-		AddressX = dectohex("0x5D5038")
-		AddressY = AddressX + 4;
-	AddressZ = dectohex("0x5D5040")
+#define A_TELA_X				0x449EF0		// whatever the fuck it is
+#define A_TELA_Y				0x449F54		// whatever the fuck it is
 
-		base_address_in_gui = dectohex("0x671F24") - dectohex("0xD0")
-		PointerInicioMap = dectohex("0x6720C0") - dectohex("0xD8")
-		PointerInicioOffsetMap = dectohex("0x676BE8") - dectohex("0xD8")
+#define A_CTRL					0x5D16D8
 
-		address_bp_base_new = dectohex("0x677A64") - dectohex("0xD8")
-		address_tibia_time = dectohex("0x677F28") - dectohex("0xD4")
+#define A_BASE_IN_GUI			0x671FF4
 
-		AddressMouseY1 = AddressMouseX1 + 4
-		AddressMaxMp = XorAddress + 4;
+#define A_BASE_LOG_LIST			0x5AF858
 
-	AddressMouse_fix_x = AddressMouseX1;
-	AddressMouse_fix_y = AddressMouse_fix_x + 4;
+#define A_PTR_VIP				0x5AE8B0
+#define A_PTR_INIT_MAP			0x672198
+#define A_PTR_INIT_MAP_OFFSET	0x676CC0
 
-	
-	AddressLogged = lookAddressLogged;
-	AddressIdChar = lookAddressIdChar;
-	AddressPrimeiroNomeBattle = lookAddressPrimeiroIdBattle + 4;*/
+#define A_FIRST_MAP				0x490F68

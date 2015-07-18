@@ -27,15 +27,14 @@ int main(int argc, char* argv[])
 		unsigned __int32 experience = 0;
 		SIZE_T size = sizeof(__int32);
 		SIZE_T readed = 0;
-		int ok = 0;
 		
-		ok = ReadProcessMemory(gHandle, (LPCVOID)address, &level, size, &readed);
+		int ok = ReadProcessMemory(gHandle, (void*)address, &level, size, &readed);
 		if (!ok || size != readed)
 			std::cout << "nope" << std::endl;
 
 		readed = 0;
 		address = A_EXPERIENCE + gBase;
-		ok = ReadProcessMemory(gHandle, (LPCVOID)address, &experience, size, &readed);
+		ok = ReadProcessMemory(gHandle, (void*)address, &experience, size, &readed);
 		if (!ok || size != readed)
 			std::cout << "nope" << std::endl;
 
