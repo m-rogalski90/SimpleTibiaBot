@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 
 #define A_RECEIVE_BUFFER		0x438328
 #define A_XOR					0x4380F0
