@@ -1,8 +1,15 @@
 #pragma once
-#include "pch.h"
+
+#include <Windows.h>
+#include <TlHelp32.h>
+
+#include <QtWidgets\qboxlayout.h>
+#include <QtWidgets\qcombobox.h>
 #include <QtWidgets\qmainwindow.h>
 #include <QtWidgets\qpushbutton.h>
 
+
+#include <QtCore\qmap.h>
 #include <QtCore\qdebug.h>
 #include <QtCore\qtimer.h>
 
@@ -15,12 +22,20 @@ public:
 	~MainWindow();
 
 private:
+	QComboBox*		m_AvailableClients;
 	QPushButton*	m_BtnFindClient;
+	QPushButton*	m_BtnChooseClient;
 	QTimer*			m_Timer;
-	HANDLE			m_GameHandle;
-	DWORD			m_BaseAddress;
+
+	QList<DWORD> m_ClientsList; // dont have time to iterate thrugh processes...
+
+	void ScanForClients();
 
 private slots:
 	void onFindClientClicked();
+	void onClientChoosen();
 	void onTimerTick();
+
+signals:
+	void ClientChoosen(DWORD);
 };

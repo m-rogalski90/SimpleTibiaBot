@@ -5,16 +5,48 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simple Tibia Bot", "Simple Tibia Bot\Simple Tibia Bot.vcxproj", "{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameClientLib", "GameClientLib\GameClientLib.vcxproj", "{26B7B885-5856-48D7-9140-20C8E4BCBDCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Debug|Win32.ActiveCfg = Debug|Win32
 		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Debug|Win32.Build.0 = Debug|Win32
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Debug|x64.ActiveCfg = Debug|x64
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Debug|x64.Build.0 = Debug|x64
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Release|Any CPU.ActiveCfg = Release|Win32
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Release|Win32.ActiveCfg = Release|Win32
 		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Release|Win32.Build.0 = Release|Win32
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Release|x64.ActiveCfg = Release|x64
+		{C7CD0DCE-AE69-49BC-A1B6-1FA7AF40DBB2}.Release|x64.Build.0 = Release|x64
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Debug|Win32.Build.0 = Debug|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Debug|x64.ActiveCfg = Debug|x64
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Debug|x64.Build.0 = Debug|x64
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Release|Any CPU.ActiveCfg = Release|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Release|Win32.ActiveCfg = Release|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Release|Win32.Build.0 = Release|Win32
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Release|x64.ActiveCfg = Release|x64
+		{26B7B885-5856-48D7-9140-20C8E4BCBDCF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

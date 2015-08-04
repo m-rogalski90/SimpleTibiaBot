@@ -1,17 +1,36 @@
-#include "pch.h"
 #include "application.h"
 
-Application::Application(int argc, char* argv[]) : QApplication(argc, argv), m_Player(0)
+Application::Application(int argc, char* argv[]) : QApplication(argc, argv)
 {
-	m_Player = new Player;
+	m_MainWindow = new MainWindow("Simple tibia bot");
+	connect(m_MainWindow, SIGNAL(ClientChoosen(DWORD)),
+		this, SLOT(onClientChoosen(DWORD)));
+	m_MainWindow->show();
 }
 
 Application::~Application()
 {
-	delete m_Player;
 }
 
-Player* Application::GetPlayer()
+void Application::onClientChoosen(DWORD pid)
+{ 
+
+	//some kind of window.show();
+	if (m_Window)
+	{
+		m_Window->close();
+		delete m_Window;
+	}
+	m_MainWindow->hide();
+
+	m_Window = new GeneralWindow(pid);
+	connect(m_Window, SIGNAL(finished(int)),
+		this, SLOT(WindowClosing(int)));
+	m_Window->show();
+}
+
+void Application::WindowClosing(int)
 {
-	return m_Player;
+	//qt built in management...
+	m_MainWindow->show();
 }
